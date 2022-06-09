@@ -21,11 +21,17 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-5">
                         <div class="general_photo">
-                            <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}" onclick="open_photo({{$work}}, 1)"  alt="">
-                            <div class="photos">
-                                <img src="{{url($work->photos[1]->photo)}}" onclick="open_photo({{$work}}, 2)" alt="">
-                                <img src="{{url($work->photos[2]->photo)}}" onclick="open_photo({{$work}}, 3)" alt="">
-                            </div>
+                            <a style="width: 75%" href="{{url($work->photos[0]->photo)}}">
+                            <img style="display: inline-block; width:100%;" class="photo_our_works" src="{{url($work->photos[0]->photo)}}" onclick="open_photo({{$work}}, 1)"  alt="">
+                            </a>
+{{--                                <div class="photos">--}}
+                                    <a style="height:203px; width:25%;" href="{{url($work->photos[1]->photo)}}">
+                                <img class="photo_this" style="display: inline-block; width:100%;" src="{{url($work->photos[1]->photo)}}" onclick="open_photo({{$work}}, 2)" alt="">
+                                    </a>
+                                    <a  style="height:203px; width:25%; display:block; margin-top:203px; margin-left: -25%;" href="{{url($work->photos[2]->photo)}}">
+                                <img class="photo_this" style="width: 100%;" src="{{url($work->photos[2]->photo)}}" onclick="open_photo({{$work}}, 3)" alt="">
+                                    </a>
+{{--                            </div>--}}
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-7">
@@ -195,21 +201,28 @@
         //         modalImg.src = this.src;
         //     }
         // }
-        function close_my() {
-            console.log(7486);
-            var modal = document.getElementById("modal");
-            modal.style.display = "none";
-        }
-        function open_photo(work, i){
-            var modal = document.getElementById("modal");
-            var modalImg1 = document.getElementById("img01");
-            var modalImg2 = document.getElementById("img02");
-            var modalImg3 = document.getElementById("img03");
-            modal.style.display = "block";
-            modalImg1.src = work.photos[0].photo;
-            modalImg2.src = work.photos[1].photo;
-            modalImg3.src = work.photos[2].photo;
-
+        // function close_my() {
+        //     console.log(7486);
+        //     var modal = document.getElementById("modal");
+        //     modal.style.display = "none";
+        // }
+        // function open_photo(work, i){
+        //     var modal = document.getElementById("modal");
+        //     var modalImg1 = document.getElementById("img01");
+        //     var modalImg2 = document.getElementById("img02");
+        //     var modalImg3 = document.getElementById("img03");
+        //     modal.style.display = "block";
+        //     modalImg1.src = work.photos[0].photo;
+        //     modalImg2.src = work.photos[1].photo;
+        //     modalImg3.src = work.photos[2].photo;
+        //
+        // }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+    <script>
+        var classes = document.querySelectorAll(".general_photo");
+        for(i=0; i<classes.length; i++) {
+            lightGallery(classes[i]);
         }
     </script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

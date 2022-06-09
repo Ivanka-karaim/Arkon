@@ -238,13 +238,15 @@
             <div class="new_photo_block">
                 <h3>НОВІ РЕАЛІЗОВАНІ ПРОЕКТИ</h3>
                 <div class="my_new">
-                <div class="swiper" id="my-gallery">
-                    <div class="new_photo_block_ar swiper-wrapper">
+                <div class="swiper" >
+                    <div class="new_photo_block_ar swiper-wrapper" id="my-gallery">
                         @foreach($works as $work)
-                        <div class="img swiper-slide">
-                        <img  src="{{url($work->photos[0]->photo)}}" alt="">
+                        <a href="{{url($work->photos[0]->photo)}}" class="img swiper-slide">
+{{--                            <a href="{{url($work->photos[0]->photo)}}">--}}
+                                <img  src="{{url($work->photos[0]->photo)}}" alt="">
+{{--                            </a>--}}
 
-                        </div>
+                        </a>
                         @endforeach
                     </div>
                 </div>
@@ -261,6 +263,10 @@
     </section>
 @endsection
 @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+    <script>
+        lightGallery(document.getElementById("my-gallery"));
+    </script>
 {{--    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>--}}
 {{--    <script>--}}
 {{--        new Swiper(".swiper", {--}}
