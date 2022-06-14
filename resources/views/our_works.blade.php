@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Скляні конструкції | Наші роботи')
+@section('title', 'ArKon | Наші роботи')
 @section('content')
     <section class="way section">
         <div class="container">
@@ -21,17 +21,15 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-5">
                         <div class="general_photo">
-                            <a style="width: 75%" href="{{url($work->photos[0]->photo)}}">
-                            <img style="display: inline-block; width:100%;" class="photo_our_works" src="{{url($work->photos[0]->photo)}}" onclick="open_photo({{$work}}, 1)"  alt="">
+                            <a class="big_photo" href="{{url($work->photos[0]->photo)}}">
+                                <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
                             </a>
-{{--                                <div class="photos">--}}
-                                    <a style="height:203px; width:25%;" href="{{url($work->photos[1]->photo)}}">
-                                <img class="photo_this" style="display: inline-block; width:100%;" src="{{url($work->photos[1]->photo)}}" onclick="open_photo({{$work}}, 2)" alt="">
-                                    </a>
-                                    <a  style="height:203px; width:25%; display:block; margin-top:203px; margin-left: -25%;" href="{{url($work->photos[2]->photo)}}">
-                                <img class="photo_this" style="width: 100%;" src="{{url($work->photos[2]->photo)}}" onclick="open_photo({{$work}}, 3)" alt="">
-                                    </a>
-{{--                            </div>--}}
+                            <a class="small_photo" href="{{url($work->photos[1]->photo)}}">
+                                <img class="photo_this" src="{{url($work->photos[1]->photo)}}"  alt="">
+                            </a>
+                            <a  class="small_photo two" href="{{url($work->photos[2]->photo)}}">
+                                <img class="photo_this"  src="{{url($work->photos[2]->photo)}}" alt="">
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-7">
@@ -53,11 +51,15 @@
             </div>
             <div class="our_work_mobile">
                 <div class="general_photo">
-                    <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
-                    <div class="photos">
-                        <img src="{{url($work->photos[1]->photo)}}" alt="">
-                        <img src="{{url($work->photos[2]->photo)}}" alt="">
-                    </div>
+                    <a class="big_photo" href="{{url($work->photos[0]->photo)}}">
+                        <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
+                    </a>
+                    <a class="small_photo" href="{{url($work->photos[1]->photo)}}">
+                        <img class="photo_this" src="{{url($work->photos[1]->photo)}}"  alt="">
+                    </a>
+                    <a  class="small_photo two" href="{{url($work->photos[2]->photo)}}">
+                        <img class="photo_this"  src="{{url($work->photos[2]->photo)}}" alt="">
+                    </a>
                 </div>
                 <div class="our_work_text">
                     <h1>{{$work->name}}</h1>
@@ -98,22 +100,32 @@
                             </div>
                             <div class="col-md-6 col-lg-5">
                                 <div class="general_photo">
-                                    <div class="photos">
-                                        <img src="{{url($work->photos[0]->photo)}}" alt="">
-                                        <img src="{{url($work->photos[1]->photo)}}" alt="">
-                                    </div>
-                                    <img class="photo_our_works" src="{{url($work->photos[2]->photo)}}"  alt="">
+
+                                    <a class="small_photo" href="{{url($work->photos[1]->photo)}}">
+                                        <img class="photo_this" src="{{url($work->photos[1]->photo)}}"  alt="">
+                                    </a>
+                                    <a  class="small_photo two" href="{{url($work->photos[2]->photo)}}">
+                                        <img class="photo_this"  src="{{url($work->photos[2]->photo)}}" alt="">
+                                    </a>
+                                    <a class="big_photo" href="{{url($work->photos[0]->photo)}}">
+                                        <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="our_work_mobile">
                         <div class="general_photo">
-                            <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
-                            <div class="photos">
-                                <img src="{{url($work->photos[1]->photo)}}" alt="">
-                                <img src="{{url($work->photos[2]->photo)}}" alt="">
-                            </div>
+                            <a class="big_photo" href="{{url($work->photos[0]->photo)}}">
+                                <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
+                            </a>
+                            <a class="small_photo" href="{{url($work->photos[1]->photo)}}">
+                                <img class="photo_this" src="{{url($work->photos[1]->photo)}}"  alt="">
+                            </a>
+                            <a  class="small_photo two" href="{{url($work->photos[2]->photo)}}">
+                                <img class="photo_this"  src="{{url($work->photos[2]->photo)}}" alt="">
+                            </a>
                         </div>
                         <div class="our_work_text">
                             <h1>{{$work->name}}</h1>
@@ -130,100 +142,31 @@
 
                     </div>
 
+
                 </div>
             </section>
 
     @endif
     @endforeach
     </div>
-    @isset($count)
-        <p>Немає більше товарів</p>
-        @else
     <div class="more" id="more">
         <div class="more_block">
             <i class="fa-solid fa-arrows-rotate"></i>
             Більше
         </div>
     </div>
-    @endif
 
-        <div class="pop_up" id="modal">
-            <div class="pop_up_container cont">
-            <span class="close" onclick="close_my()">&#10006</span>
-            <div class="swiper_our">
-                <div class="photo_body swiper-wrapper">
-                    <div class="swiper-slide ">
-
-                        <div class="swiper_our">
-                        <img class="modal-content" id="img01">
-                        </div>
-                    </div>
-
-
-                    <div class="swiper-slide ">
-
-                        <div class="swiper_our">
-                        <img class="modal-content" id="img02">
-                    </div>
-                    </div>
-                    <div class="swiper-slide">
-
-                        <div class="swiper_our">
-                        <img class="modal-content" id="img03">
-                    </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-
-            <div class="swiper-button-prev button ">
-                <i class="fa-solid fa-chevron-left"></i>
-            </div>
-            <div class="swiper-button-next button">
-                <i class="fa-solid fa-chevron-right"></i>
-            </div>
-            </div>
-        </div>
 
 @endsection
 @section('scripts')
-    <script>
-        // var modal = document.getElementById("modal");
-        // var img = document.querySelectorAll(".myImg");
-        // var modalImg = document.getElementById("img01");
-        //
-        // var close = document.getElementById("close");
-        // for(i=0; i<img.length; i++) {
-        //     img[i].onclick = function () {
-        //         modal.style.display = "block";
-        //         modalImg.src = this.src;
-        //     }
-        // }
-        // function close_my() {
-        //     console.log(7486);
-        //     var modal = document.getElementById("modal");
-        //     modal.style.display = "none";
-        // }
-        // function open_photo(work, i){
-        //     var modal = document.getElementById("modal");
-        //     var modalImg1 = document.getElementById("img01");
-        //     var modalImg2 = document.getElementById("img02");
-        //     var modalImg3 = document.getElementById("img03");
-        //     modal.style.display = "block";
-        //     modalImg1.src = work.photos[0].photo;
-        //     modalImg2.src = work.photos[1].photo;
-        //     modalImg3.src = work.photos[2].photo;
-        //
-        // }
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
     <script>
-        var classes = document.querySelectorAll(".general_photo");
+        var classes = document.getElementsByClassName("general_photo");
         for(i=0; i<classes.length; i++) {
             lightGallery(classes[i]);
+            console.log(673);
         }
+
     </script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -231,8 +174,6 @@
             var inProcess = false;
             var num = 4;
             const more = document.getElementById('more');
-
-
             // $(window).scroll(function() {
             // if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProcess) {
             more.addEventListener('click', function (e) {
@@ -255,6 +196,11 @@
                     }
                 }).done(function (data) {
                     num += 4;
+                    classe=document.getElementsByClassName("general_photo");
+                    for(i=0; i<classe.length; i++) {
+                        lightGallery(classe[i]);
+                        console.log(673);
+                    }
                 });
 
             })
@@ -262,35 +208,6 @@
         });
 
     </script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script>
-        new Swiper(".swiper_our", {
-            spaceBetween: 20,
 
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            slidesPerView: 1,
-            // loop:true,
-            breakpoints: {
-                768:{
-                    slidesPerView: 1.05,
-                    spaceBetween: 20,
-                },
-                576:{
-                    slidesPerView: 1.05,
-                    spaceBetween: 15,
-                },
-                992:{
-                    slidesPerView: 1.05,
-                    spaceBetween: 30,
-                }
-            }
-        })
-
-
-
-    </script>
 @endsection
 

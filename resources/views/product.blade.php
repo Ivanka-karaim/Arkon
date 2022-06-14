@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', "$product->name")
+@section('title', "ArKon | $product->name")
 @section('content')
 <!--    --><?php
 //    $response="pop_up";
@@ -69,7 +69,9 @@
             <div class="product_photo_and_description">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img class="click" src="{{url($product->photo)}}" alt="" id="myImg">
+{{--                        <a href="{{url($product->photo)}}" id="photo">--}}
+                            <img class="click" src="{{url($product->photo)}}" alt="" id="myImg">
+{{--                        </a>--}}
                     </div>
                     <div class="col-lg-6">
                         <div class="description">
@@ -81,7 +83,7 @@
                                 <p>{{'Колір скла: '.($product->color_glass? $product->color_glass:' - ')}}</p>
                                 <p>{{'Колір фурнітури: '.($product->color_furniture? $product->color_furniture:' - ')}}</p>
                                 <p>{{'Ширина: від '.($product->width? $product->width.'мм':' - ')}}</p>
-                                <p>{{'Ширина: від '.($product->height? $product->height.'мм':' - ')}}</p>
+                                <p>{{'Висота: від '.($product->height? $product->height.'мм':' - ')}}</p>
                             </div>
                             <div class="order">
                                 <div class="guarantee">
@@ -130,7 +132,7 @@
                                 <p>{{'Колір скла: '.($product->color_glass? $product->color_glass:' - ')}}</p>
                                 <p>{{'Колір фурнітури: '.($product->color_furniture? $product->color_furniture:' - ')}}</p>
                                 <p>{{'Ширина: від '.($product->width? $product->width.'мм':' - ')}}</p>
-                                <p>{{'Ширина: від '.($product->height? $product->height.'мм':' - ')}}</p>
+                                <p>{{'Висота: від '.($product->height? $product->height.'мм':' - ')}}</p>
                             </div>
                             <div class="order">
                                 <div class="buy">
@@ -175,7 +177,7 @@
                         <p>{{'Колір скла: '.($product->color_glass? $product->color_glass:' - ')}}</p>
                         <p>{{'Колір фурнітури: '.($product->color_furniture? $product->color_furniture:' - ')}}</p>
                         <p>{{'Ширина: від '.($product->width? $product->width.'мм':' - ')}}</p>
-                        <p>{{'Ширина: від '.($product->height? $product->height.'мм':' - ')}}</p>
+                        <p>{{'Висота: від '.($product->height? $product->height.'мм':' - ')}}</p>
                     </div>
 
                 </div>
@@ -185,9 +187,10 @@
                 <hr>
                 <div class="my_row">
                     <div class="row_sklo">
-                        <img src="{{url('img/type/type_sklo/Стекло-Crystalvision-оптивайт.jpg')}}" alt="">
-                        <h2>Висвітлене</h2>
+                        <img src="img/type/type_sklo/Стекло-БЦ-флоат.jpg" alt="">
+                        <h2>Флоат</h2>
                     </div>
+
                     <div class="row_sklo">
                         <img src="img/type/type_sklo/Стекло-матовое.jpg" alt="">
                         <h2>Матове</h2>
@@ -201,9 +204,10 @@
                         <h2>Графіт</h2>
                     </div>
                     <div class="row_sklo">
-                        <img src="img/type/type_sklo/Стекло-БЦ-флоат.jpg" alt="">
-                        <h2>Флоат</h2>
+                        <img src="{{url('img/type/type_sklo/Стекло-Crystalvision-оптивайт.jpg')}}" alt="">
+                        <h2>Ультрапрозоре</h2>
                     </div>
+
                 </div>
                 <h1>Тип фурнітури</h1><hr>
                 <div class="fur">
@@ -254,7 +258,7 @@
                 <div class="row">
                     <div class="col-6">
                         <img src="img/type/type_sklo/Стекло-Crystalvision-оптивайт.jpg" alt="">
-                        <h2>Висвітлене</h2>
+                        <h2>Ультрапрозоре</h2>
 
                     </div>
                     <div class="col-6">
@@ -319,6 +323,13 @@
 
 @endsection
 @section('scripts')
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>--}}
+{{--    <script>--}}
+{{--        document.getElementById("photo").requestFullScreen();--}}
+{{--        // lightGallery(document.getElementById('photo'));--}}
+
+
+{{--    </script>--}}
 
     <script>
 

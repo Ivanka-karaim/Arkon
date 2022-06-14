@@ -62,7 +62,7 @@
             </div>
             <div class="mobile">
             <div class="contact_mobile">
-                <a class="icon" href="#"><i class="fa-solid fa-phone"></i></a>
+                <a class="icon" href="tel:+380685059650"><i class="fa-solid fa-phone"></i></a>
             </div>
             <div class="menu-burger__header">
                 <span>
@@ -111,8 +111,8 @@
                     <div>
                         <a  href="tel:+380685059650">+38 (068) 505 96 50</a><br>
                         <a  href="tel:+380507517161">+38 (050) 751 71 61</a><br>
-                        <a  href="#">Email: salonskla@ukr.net</a><br>
-                        <a  href="#">Львівська обл., м. Броди, вул. Руська, 9</a>
+                        <a  href="mailto:salonskla@ukr.net">Email: salonskla@ukr.net</a><br>
+                        <a  href="https://goo.gl/maps/FL2et2vg1AZoVLEVA" target="_blank">Львівська обл., м. Броди, вул. Руська, 9</a>
                     </div>
                     <div class="icons">
                         <a class="icon" href="https://www.facebook.com/profile.php?id=100040310163390" target="_blank"><i class="fa-brands fa-facebook"></i></a>
@@ -148,8 +148,8 @@
                     <div>
                         <a  href="tel:+380685059650">+38 (068) 505 96 50</a><br>
                         <a  href="tel:+380507517161">+38 (050) 751 71 61</a><br>
-                        <a  href="#">Email: salonskla@ukr.net</a><br>
-                        <a  href="#">Львівська обл., м. Броди, вул. Руська, 9</a>
+                        <a  href="mailto:salonskla@ukr.net">Email: salonskla@ukr.net</a><br>
+                        <a  href="https://goo.gl/maps/FL2et2vg1AZoVLEVA" target="_blank">Львівська обл., м. Броди, вул. Руська, 9</a>
                     </div>
                     <div class="icons">
                         <a class="icon" href="https://www.facebook.com/profile.php?id=100040310163390" target="_blank"><i class="fa-brands fa-facebook"></i></a>
@@ -170,8 +170,8 @@
             <h3>СКЛЯНІ КОНСТРУКЦІЇ</h3>
             <a  href="tel:+380685059650">+38 (068) 505 96 50</a><br>
             <a  href="tel:+380507517161">+38 (050) 751 71 61</a><br>
-            <a  href="#">Email: salonskla@ukr.net</a><br>
-            <a  href="#">Львівська обл., м. Броди, вул. Руська, 9</a>
+            <a  href="mailto:salonskla@ukr.net">Email: salonskla@ukr.net</a><br>
+            <a  href="https://goo.gl/maps/FL2et2vg1AZoVLEVA" target="_blank">Львівська обл., м. Броди, вул. Руська, 9</a>
             <div class="icons">
                 <a class="icon" href="https://www.facebook.com/profile.php?id=100040310163390" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a class="icon" href="https://instagram.com/arkonsklo?igshid=YmMyMTA2M2Y=" target="_blank"><i class="fa-brands fa-instagram"></i></a>
@@ -254,6 +254,10 @@
 {{--</script>--}}
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/photoswipe@5.2.4/dist/photoswipe-lightbox.esm.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+<script>
+    lightGallery(document.getElementById("my-gallery"));
+</script>
 <script src="https://unpkg.com/photoswipe@5.2.4/dist/photoswipe.esm.js"></script>
 <script>
     const global_swiper_photoswipe_loop_setting = false;
@@ -372,6 +376,7 @@
     //     }
     // });
 </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 <script>
@@ -402,12 +407,37 @@
         let form = document.forms.my;
         let width = form.elements.width;
         let height = form.elements.height;
+        let depth = form.elements.depth;
         let type=form.elements.type;
         let type_c=form.elements.type_construction;
         let type_door=form.elements.type_door;
         let thickness =form.elements.thickness;
         let furniture = form.elements.furniture;
-        document.getElementById('result').innerHTML = width.value*height.value*type.value*type_c.value*type_door.value*thickness.value*furniture.value;
+        var result;
+
+        result=type_construction(type_c.value, type_door.value, furniture.value)+((width.value/1000+depth.value/1000)*height.value/1000*type.value*thickness.value);
+        result*=1.5;
+        if(result) {
+            document.getElementById('result').innerHTML = "Сума: від " + result + " грн";
+        }
+        // document.getElementById('result').innerHTML = width.value*height.value*type.value*type_c.value*type_door.value*thickness.value*furniture.value;
+    }
+    function type_construction(type_c, type_door, furniture){
+            if(type_c=='tap' && type_door==3){
+                document.getElementById('depth_1').innerHTML = "0 мм";
+                document.getElementById('depth').value=0;
+                console.log(1225*furniture);
+                return 1225*furniture;
+            }
+            else if(type_c==='tap'){
+                console.log(3550*furniture);
+                return 3550*furniture;
+            }
+            else{
+                console.log(3905*furniture);
+
+                return 3905*furniture;
+            }
     }
 </script>
 

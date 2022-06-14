@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', "$category->name")
+@section('title', "ArKon | $category->name")
 @section('content')
     <section class="way">
         <div class="container">
@@ -23,7 +23,7 @@
             @endif
             @if($category->name=='Фурнітура для скла')
                 <div class="fur_download">
-                <h3>Натиснувши кнопку нижче ви можете скачати файл з цінами фурнітури на нашому сайті</h3><br>
+                <h3 style="text-align:center">Натиснувши кнопку нижче ви можете скачати файл з цінами фурнітури на нашому сайті</h3><br>
             <div class="download">
                 <a download href="{{url('files/1.pdf')}}">Скачати</a>
             </div>

@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Скляні конструкції | Каталог')
+@section('title', 'ArKon | Каталог')
 @section('content')
     <section class="way">
         <div class="container">

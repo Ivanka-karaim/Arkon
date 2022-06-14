@@ -6,11 +6,15 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-5">
                             <div class="general_photo">
-                                <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
-                                <div class="photos">
-                                    <img src="{{url($work->photos[1]->photo)}}" alt="">
-                                    <img src="{{url($work->photos[2]->photo)}}" alt="">
-                                </div>
+                                <a class="big_photo" href="{{url($work->photos[0]->photo)}}">
+                                    <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
+                                </a>
+                                <a class="small_photo" href="{{url($work->photos[1]->photo)}}">
+                                    <img class="photo_this" src="{{url($work->photos[1]->photo)}}"  alt="">
+                                </a>
+                                <a  class="small_photo two" href="{{url($work->photos[2]->photo)}}">
+                                    <img class="photo_this"  src="{{url($work->photos[2]->photo)}}" alt="">
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-7">
@@ -32,11 +36,15 @@
                 </div>
                 <div class="our_work_mobile">
                     <div class="general_photo">
-                        <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
-                        <div class="photos">
-                            <img src="{{url($work->photos[1]->photo)}}" alt="">
-                            <img src="{{url($work->photos[2]->photo)}}" alt="">
-                        </div>
+                        <a class="big_photo" href="{{url($work->photos[0]->photo)}}">
+                            <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
+                        </a>
+                        <a class="small_photo" href="{{url($work->photos[1]->photo)}}">
+                            <img class="photo_this" src="{{url($work->photos[1]->photo)}}"  alt="">
+                        </a>
+                        <a  class="small_photo two" href="{{url($work->photos[2]->photo)}}">
+                            <img class="photo_this"  src="{{url($work->photos[2]->photo)}}" alt="">
+                        </a>
                     </div>
                     <div class="our_work_text">
                         <h1>{{$work->name}}</h1>
@@ -77,22 +85,32 @@
                         </div>
                         <div class="col-md-6 col-lg-5">
                             <div class="general_photo">
-                                <div class="photos">
-                                    <img src="{{url($work->photos[0]->photo)}}" alt="">
-                                    <img src="{{url($work->photos[1]->photo)}}" alt="">
-                                </div>
-                                <img class="photo_our_works" src="{{url($work->photos[2]->photo)}}"  alt="">
+
+                                <a class="small_photo" href="{{url($work->photos[1]->photo)}}">
+                                    <img class="photo_this" src="{{url($work->photos[1]->photo)}}"  alt="">
+                                </a>
+                                <a  class="small_photo two" href="{{url($work->photos[2]->photo)}}">
+                                    <img class="photo_this"  src="{{url($work->photos[2]->photo)}}" alt="">
+                                </a>
+                                <a class="big_photo" href="{{url($work->photos[0]->photo)}}">
+                                    <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
+                                </a>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="our_work_mobile">
                     <div class="general_photo">
-                        <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
-                        <div class="photos">
-                            <img src="{{url($work->photos[1]->photo)}}" alt="">
-                            <img src="{{url($work->photos[2]->photo)}}" alt="">
-                        </div>
+                        <a class="big_photo" href="{{url($work->photos[0]->photo)}}">
+                            <img class="photo_our_works" src="{{url($work->photos[0]->photo)}}"  alt="">
+                        </a>
+                        <a class="small_photo" href="{{url($work->photos[1]->photo)}}">
+                            <img class="photo_this" src="{{url($work->photos[1]->photo)}}"  alt="">
+                        </a>
+                        <a  class="small_photo two" href="{{url($work->photos[2]->photo)}}">
+                            <img class="photo_this"  src="{{url($work->photos[2]->photo)}}" alt="">
+                        </a>
                     </div>
                     <div class="our_work_text">
                         <h1>{{$work->name}}</h1>
@@ -108,6 +126,7 @@
                     </div>
 
                 </div>
+
 
             </div>
         </section>

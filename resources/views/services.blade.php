@@ -1,10 +1,10 @@
 @extends('app')
-@section('title', 'Скляні конструкції | Послуги')
+@section('title', 'ArKon | Послуги')
 @section('content')
     <section class="way">
         <div class="container">
             <div class="way_flex">
-                <a href="./"><h2>Головна</h2></a>
+                <a href="{{route('general')}}"><h2>Головна</h2></a>
                 <i class="fa-solid fa-arrow-right-long"></i>
                 <a href="#"><h2>Послуги</h2></a>
             </div>
