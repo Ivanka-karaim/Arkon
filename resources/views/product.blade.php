@@ -1,36 +1,39 @@
 @extends('app')
 @section('title', "ArKon | $product->name")
 @section('content')
-<!--    --><?php
-//    $response="pop_up";
-//    $error="";
-//    $pattern = "/^\+380\d{3}\d{2}\d{2}\d{2}$/";
-//    if(!empty($_POST)){
-//        $phone_number=trim($_POST["phone_number"]);
-//        if(preg_match($pattern, $phone_number)) {
-//            $error="";
-//            $response="pop_up";
-//        }
-//        else {
-//            $error="Ви ввели неправильний номер телефону!!!";
-//            $response .= " active";
-//        }
-//
-//    }
-//    ?>
-    <div class="{{$response}}" id="pop_up">
+{{--    @if (Session::has('success'))--}}
+{{--        <div class="pop_up active" >--}}
+{{--            <div class="pop_up_container">--}}
+{{--                <div class="pop_up_body" id="pop_up_body">--}}
+{{--                    <h3>Ваш номер збержено, очікуйте дзвінка</h3>--}}
+{{--                    <button class="pop_up_close">Ок</button>--}}
+{{--                    <div class="pop_up_close" id="pop_up_close">&#10006--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    @endif--}}
+    <div class="pop_up {!! Session::get('response') !!}" id="pop_up">
         <div class="pop_up_container">
             <div class="pop_up_body" id="pop_up_body">
+                @if((Session::has('good')))
+                                <h3>Ваш номер збержено, очікуйте дзвінка</h3>
+                                <button class="pop_up_close">Ок</button>
+                                <div class="pop_up_close" id="pop_up_close">&#10006</div>
+                @else
                 <h3>Для замовлення введіть ваш номер телефону</h3>
                 <p>Наш консультант зателефонує вам в найближчий термін для уточнення усіх даних</p>
                 <form action="" method="post">
                     @csrf
                     <input type="text" placeholder="+38 (000) 000 00 00" id="phone_number" name="phone_number" required="">
-                    <p>{{$error}}</p>
+                    <p>{!! Session::get('error') !!}</p>
                     <button id="open_response">Надіслати</button>
                 </form>
                 <div class="pop_up_close" id="pop_up_close">&#10006
                 </div>
+
+                    @endif
+
             </div>
         </div>
     </div>
@@ -63,9 +66,6 @@
 
     <section class="product">
         <div class="container">
-
-
-
             <div class="product_photo_and_description">
                 <div class="row">
                     <div class="col-lg-6">
@@ -187,20 +187,20 @@
                 <hr>
                 <div class="my_row">
                     <div class="row_sklo">
-                        <img src="img/type/type_sklo/Стекло-БЦ-флоат.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-БЦ-флоат.jpg')}}" alt="">
                         <h2>Флоат</h2>
                     </div>
 
                     <div class="row_sklo">
-                        <img src="img/type/type_sklo/Стекло-матовое.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-матовое.jpg')}}" alt="">
                         <h2>Матове</h2>
                     </div>
                     <div class="row_sklo">
-                        <img src="img/type/type_sklo/Стекло-тонированное-бронза.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-тонированное-бронза.jpg')}}" alt="">
                         <h2>Бронза</h2>
                     </div>
                     <div class="row_sklo">
-                        <img src="img/type/type_sklo/Стекло-тонированное-графит-.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-тонированное-графит-.jpg')}}" alt="">
                         <h2>Графіт</h2>
                     </div>
                     <div class="row_sklo">
@@ -214,20 +214,20 @@
                     <div class="my_row">
                         <div class="row_fur">
                             <div class="photo">
-                                <img src="img/type/type_fur/image%2019.png" alt="">
-                                <img src="img/type/type_fur/image%2018.png" alt="">
+                                <img src="{{url('img/type/type_fur/image%2019.png')}}" alt="">
+                                <img src="{{url('img/type/type_fur/image%2018.png')}}" alt="">
                             </div>
                             <h2>Хром</h2>
                         </div>
                         <div class="row_fur">
-                            <img src="img/type/type_fur/image%2015.png" alt="">
+                            <img src="{{url('img/type/type_fur/image%2015.png')}}" alt="">
                             <h2>Золото</h2>
 
                         </div>
                         <div class="row_fur">
                             <div class="photo">
-                                <img src="img/type/type_fur/image%2016.png" alt="">
-                                <img src="img/type/type_fur/image%2017.png" alt="">
+                                <img src="{{url('img/type/type_fur/image%2016.png')}}" alt="">
+                                <img src="{{url('img/type/type_fur/image%2017.png')}}" alt="">
                             </div>
                             <h2>Чорний</h2>
 
@@ -237,16 +237,16 @@
                 <div class="fur_medium">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="img/type/type_fur/image%2019.png" alt="">
+                            <img src="{{url('img/type/type_fur/image%2019.png')}}" alt="">
                             <h2>Хром</h2>
                         </div>
                         <div class="col-md-4">
-                            <img src="img/type/type_fur/image%2015.png" alt="">
+                            <img src="{{url('img/type/type_fur/image%2015.png')}}" alt="">
                             <h2>Золото</h2>
 
                         </div>
                         <div class="col-md-4">
-                            <img src="img/type/type_fur/image%2016.png" alt="">
+                            <img src="{{url('img/type/type_fur/image%2016.png')}}" alt="">
                             <h2>Чорний</h2>
                         </div>
                     </div>
@@ -257,22 +257,22 @@
                 <hr>
                 <div class="row">
                     <div class="col-6">
-                        <img src="img/type/type_sklo/Стекло-Crystalvision-оптивайт.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-Crystalvision-оптивайт.jpg')}}" alt="">
                         <h2>Ультрапрозоре</h2>
 
                     </div>
                     <div class="col-6">
-                        <img src="img/type/type_sklo/Стекло-матовое.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-матовое.jpg')}}" alt="">
                         <h2>Матове</h2>
 
                     </div>
                     <div class="col-6">
-                        <img src="img/type/type_sklo/Стекло-тонированное-бронза.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-тонированное-бронза.jpg')}}" alt="">
                         <h2>Бронза</h2>
 
                     </div>
                     <div class="col-6">
-                        <img src="img/type/type_sklo/Стекло-тонированное-графит-.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-тонированное-графит-.jpg')}}" alt="">
                         <h2>Графіт</h2>
 
                     </div>
@@ -280,7 +280,7 @@
 
                     </div>
                     <div class="col-6">
-                        <img src="img/type/type_sklo/Стекло-БЦ-флоат.jpg" alt="">
+                        <img src="{{url('img/type/type_sklo/Стекло-БЦ-флоат.jpg')}}" alt="">
                         <h2>Флоат</h2>
 
                     </div>
@@ -292,16 +292,16 @@
                 <hr>
                 <div class="row">
                     <div class="col-6">
-                        <img src="img/type/type_fur/image%2019.png" alt="">
+                        <img src="{{url('img/type/type_fur/image%2019.png')}}" alt="">
                         <h2>Хром</h2>
                     </div>
                     <div class="col-6">
-                        <img src="img/type/type_fur/image%2016.png" alt="">
+                        <img src="{{url('img/type/type_fur/image%2016.png')}}" alt="">
                         <h2>Чорний</h2>
                     </div>
                     <div class="col-3"></div>
                     <div class="col-6">
-                        <img src="img/type/type_fur/image%2015.png" alt="">
+                        <img src="{{url('img/type/type_fur/image%2015.png')}}" alt="">
                         <h2>Золото</h2>
 
                     </div>
@@ -348,7 +348,7 @@
 
         closePopUp.addEventListener('click', () => {
             popUp.classList.remove('active');
-            response.classList.remove('active');
+
         })
     </script>
     <script>

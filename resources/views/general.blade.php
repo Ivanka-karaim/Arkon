@@ -130,7 +130,7 @@
     <section class="catalog_lend">
         <div class="container">
             <div class="row">
-                @foreach($categories as $category)
+                @foreach($categories_6 as $category)
                 <div class="col-6 col-lg-4">
                     <a href="{{url('./catalog/'.$category->id)}}" class=" catalog_lending  ">
                         <img class="photo" src="{{url($category->photo)}}" alt="">

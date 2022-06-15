@@ -107,7 +107,7 @@
         <div class="foot">
             <div class="row">
                 <div class="col-md-4">
-                    <a href="#" class="h12"><h3>КОНТАКТИ</h3></a>
+                    <div><h3>КОНТАКТИ</h3></div>
                     <div>
                         <a  href="tel:+380685059650">+38 (068) 505 96 50</a><br>
                         <a  href="tel:+380507517161">+38 (050) 751 71 61</a><br>
@@ -128,9 +128,6 @@
                 <div class="col-lg-5 col-xl-4 ">
                     <a class="h12" href="{{route('catalog')}}"><h3>КАТАЛОГ</h3></a>
                     <div class="row">
-                        <?php
-                        $categories = DB::table('categories')->get();
-                        ?>
                         @foreach($categories as $category)
                         <div class="col-md-6">
                             <a href="{{route('products', $category->id)}}">{{$category->name}}</a>

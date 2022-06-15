@@ -10,7 +10,6 @@
                 <i class="fa-solid fa-arrow-right-long"></i>
                 <a href="#"><h2>{{$category->name}}</h2></a>
             </div>
-
         </div>
     </section>
     <section class="products">
@@ -25,12 +24,12 @@
                 <div class="fur_download">
                 <h3 style="text-align:center">Натиснувши кнопку нижче ви можете скачати файл з цінами фурнітури на нашому сайті</h3><br>
             <div class="download">
-                <a download href="{{url('files/1.pdf')}}">Скачати</a>
+                <a download href="{{url('files/ArKon Прайс фурнітури.pdf')}}">Скачати</a>
             </div>
                 </div>
-            @endif
+            @else
             <div class="row">
-                @foreach($products as $product)
+                @forelse($products as $product)
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="block_product">
                         <img class="photo" src="{{url($product->photo)}}" alt="">
@@ -39,15 +38,23 @@
                                 <h2 class="product_name">{{$product->name}}</h2>
                                 <h2 class="price">{{'від '.$product->price.'грн'}}</h2>
                             </div>
-                            <a href="{{route('product', [$category->id, $product->id])}}" >
+                            <a href="{{route('product', [$category->id, $product->id])}}">
                                 <h2>Детальніше</h2>
                             </a>
 
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                    <div class="fur_download">
+                        <h3>На даний момент на сайті немає інформації по даному товару, зателефонуйте нам для детальнішої інформації</h3>
+                        <div class="download">
+                            <a href="tel:+380685059650">Зателефонувати</a>
+                        </div>
+                    </div>
+                @endforelse
             </div>
+            @endif
 
         </div>
     </section>
