@@ -130,7 +130,7 @@
     <section class="catalog_lend">
         <div class="container">
             <div class="row">
-                @foreach($categories_6 as $category)
+                @foreach($categories->take(6) as $category)
                 <div class="col-6 col-lg-4">
                     <a href="{{url('./catalog/'.$category->id)}}" class=" catalog_lending  ">
                         <img class="photo" src="{{url($category->photo)}}" alt="">
@@ -283,86 +283,5 @@
         </div>
     </section>
 @endsection
-@section('scripts')
 
-{{--    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>--}}
-{{--    <script>--}}
-{{--        new Swiper(".swiper", {--}}
-{{--            spaceBetween: 20,--}}
-
-{{--            navigation: {--}}
-{{--                nextEl: '.swiper-button-next',--}}
-{{--                prevEl: '.swiper-button-prev',--}}
-{{--            },--}}
-{{--            slidesPerView: 2,--}}
-{{--            loop:true,--}}
-{{--            breakpoints: {--}}
-{{--                768:{--}}
-{{--                    slidesPerView: 4.05,--}}
-{{--                    spaceBetween: 20,--}}
-{{--                },--}}
-{{--                576:{--}}
-{{--                    slidesPerView: 3.05,--}}
-{{--                    spaceBetween: 15,--}}
-{{--                },--}}
-{{--                992:{--}}
-{{--                    slidesPerView: 5.05,--}}
-{{--                    spaceBetween: 30,--}}
-{{--                }--}}
-
-{{--            }--}}
-{{--        });--}}
-
-
-{{--        import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.2.4/dist/photoswipe-lightbox.esm.js';--}}
-{{--        import PhotoSwipe from 'https://unpkg.com/photoswipe@5.2.4/dist/photoswipe.esm.js';--}}
-
-{{--        const photo_swipe_options = {--}}
-{{--            gallery: '#my-gallery',--}}
-{{--            pswpModule: PhotoSwipe,--}}
-{{--            children: 'a',--}}
-{{--            loop: global_swiper_photoswipe_loop_setting,--}}
-{{--            showHideAnimationType: 'zoom', /* options: fade, zoom, none */--}}
-{{--            /* ## Hiding a specific UI element ## */--}}
-{{--            zoom: false,--}}
-{{--            close: true,--}}
-{{--            counter: !global_swiper_photoswipe_loop_setting,--}}
-{{--            arrowKeys: true,--}}
-{{--            /* ## Options ## */--}}
-{{--            bgOpacity: 0.3,/* deafult: 0.8 */--}}
-{{--            wheelToZoom: true, /* deafult: undefined */--}}
-{{--        };--}}
-
-{{--        const lightbox = new PhotoSwipeLightbox(photo_swipe_options);--}}
-
-{{--        lightbox.init();--}}
-
-{{--        lightbox.on('change', () => {--}}
-{{--            const { pswp } = lightbox;--}}
-{{--            swiper.slideTo(pswp.currIndex, 0, false);--}}
-{{--            //console.log('Slide index', pswp.currIndex);--}}
-{{--            //console.log('Slide object', pswp.currSlide);--}}
-{{--            //console.log('Slide object data', pswp.currSlide.data);--}}
-{{--        });--}}
-
-{{--        lightbox.on('afterInit', () => {--}}
-{{--            const { pswp } = lightbox;--}}
-{{--            if(swiper.params.autoplay.enabled){--}}
-{{--                swiper.autoplay.stop();--}}
-{{--            };--}}
-{{--            console.log('afterInit');--}}
-{{--        });--}}
-
-
-{{--        lightbox.on('closingAnimationStart', () => {--}}
-{{--            //console.log('closingAnimationStart');--}}
-{{--            const { pswp } = lightbox;--}}
-{{--            swiper.slideTo(pswp.currIndex, 0, false);--}}
-{{--            /* if autoplay enabled == true -> autoplay.start() when close lightbox */--}}
-{{--            if(swiper.params.autoplay.enabled){--}}
-{{--                swiper.autoplay.start();--}}
-{{--            }--}}
-{{--        });--}}
-{{--    </script>--}}
-    @endsection
 

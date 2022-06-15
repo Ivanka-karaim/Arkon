@@ -23,7 +23,7 @@
                                 <div class="text">
                                     <div class="p">{{'Розмір: '.$work->size}}</div>
                                     <div class="p">{{$work->description}}</div>
-                                    <a href="{{route('product', [$work->product->category->id, $work->product->id])}}" class="a">{{'Тип: '.$work->product->name}}</a>
+                                    <a href="{{route('product', $work->product->id)}}" class="a">{{'Тип: '.$work->product->name}}</a>
                                 </div>
                                 <div class="price_data">
                                     <h2>{{'Ціна: '.$work->price.' грн'}}</h2>
@@ -51,7 +51,7 @@
                         <div class="text">
                             <div class="p">{{'Розмір: '.$work->size}}</div>
                             <div class="p">{{$work->description}}</div>
-                            <a href="{{route('product', [$work->product->category->id, $work->product->id])}}" class="a">{{'Тип: '.$work->product->name}}</a>
+                            <a href="{{route('product', $work->product->id)}}" class="a">{{'Тип: '.$work->product->name}}</a>
                         </div>
                         <div class="price_data">
                             <h2>{{'Ціна: '.$work->price.' грн'}}</h2>
@@ -75,7 +75,7 @@
                                 <div class="text">
                                     <div class="p">{{'Розмір: '.$work->size}}</div>
                                     <div class="p">{{$work->description}}</div>
-                                    <a href="{{route('product', [$work->product->category->id, $work->product->id])}}" class="a">{{'Тип: '.$work->product->name}}</a>
+                                    <a href="{{route('product',  $work->product->id)}}" class="a">{{'Тип: '.$work->product->name}}</a>
                                 </div>
                                 <div class="price_data">
                                     <h2>{{'Ціна: '.$work->price.' грн'}}</h2>
@@ -117,7 +117,7 @@
                         <div class="text">
                             <div class="p">{{'Розмір: '.$work->size}}</div>
                             <div class="p">{{$work->description}}</div>
-                            <a href="{{route('product', [$work->product->category->id, $work->product->id])}}" class="a">{{'Тип: '.$work->product->name}}</a>
+                            <a href="{{route('product', $work->product->id)}}" class="a">{{'Тип: '.$work->product->name}}</a>
                         </div>
                         <div class="price_data">
                             <h2>{{'Ціна: '.$work->price.' грн'}}</h2>

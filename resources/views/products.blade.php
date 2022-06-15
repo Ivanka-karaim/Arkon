@@ -38,7 +38,7 @@
                                 <h2 class="product_name">{{$product->name}}</h2>
                                 <h2 class="price">{{'від '.$product->price.'грн'}}</h2>
                             </div>
-                            <a href="{{route('product', [$category->id, $product->id])}}">
+                            <a href="{{route('product', $product->id)}}">
                                 <h2>Детальніше</h2>
                             </a>
 

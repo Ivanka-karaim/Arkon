@@ -187,117 +187,14 @@
 </footer>
 @yield('scripts')
 <script src="https://kit.fontawesome.com/1467b92032.js" crossorigin="anonymous"></script>
-{{--<script>--}}
-
-{{--    const openPopUp = document.querySelectorAll('.open_pop_up');--}}
-{{--    const closePopUp = document.getElementById('pop_up_close');--}}
-{{--    const popUp = document.getElementById('pop_up');--}}
-{{--    const openResponse = document.getElementById('open_response');--}}
-{{--    const response = document.getElementById('response');--}}
-{{--    for(var i=0; i<openPopUp.length; i++) {--}}
-{{--        openPopUp[i].addEventListener('click', function (e) {--}}
-{{--            e.preventDefault();--}}
-{{--            popUp.classList.add('active');--}}
-
-{{--        });--}}
-{{--    }--}}
-
-{{--    closePopUp.addEventListener('click', () => {--}}
-{{--        popUp.classList.remove('active');--}}
-{{--        response.classList.remove('active');--}}
-{{--    })--}}
-{{--</script>--}}
-{{--<script>--}}
-{{--    const item =document.querySelector(".more");--}}
-{{--    const getItem = item.getBoundingClientRect().y+window.pageYOffset;--}}
-{{--    console.log(getItem);--}}
-{{--</script>--}}
-{{--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--}}
-{{--<script type="text/javascript">--}}
-{{--    $(document).ready(function(){--}}
-{{--        var inProcess = false;--}}
-{{--        var num = 4;--}}
-{{--        const more = document.getElementById('more');--}}
-
-
-{{--        // $(window).scroll(function() {--}}
-{{--            // if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProcess) {--}}
-{{--            more.addEventListener('click', function (e) {--}}
-{{--                $.ajax({--}}
-{{--                    url: './our_works/'+num,--}}
-{{--                    method: 'GET',--}}
-{{--                    beforeSend: function () {--}}
-
-{{--                    },--}}
-{{--                    success: function (response) {--}}
-{{--                        if(!response && !inProcess){--}}
-{{--                            $('#logar').append("<p style='text-align:center'>Немає більше товарів</p>");--}}
-
-{{--                            inProcess = true;--}}
-{{--                        }--}}
-{{--                        else {--}}
-{{--                            $('#logar').append(response);--}}
-
-{{--                        }--}}
-{{--                    }--}}
-{{--                }).done(function (data) {--}}
-{{--                    num += 4;--}}
-{{--                });--}}
-
-{{--            })--}}
-{{--        // });--}}
-{{--    });--}}
-
-{{--</script>--}}
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script type="module" src="https://unpkg.com/photoswipe@5.2.4/dist/photoswipe-lightbox.esm.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
 <script>
     lightGallery(document.getElementById("my-gallery"));
 </script>
-<script src="https://unpkg.com/photoswipe@5.2.4/dist/photoswipe.esm.js"></script>
-<script>
-    const global_swiper_photoswipe_loop_setting = false;
 
-    // var swiper = new Swiper(".swiper", {
-    //     slidesPerView: 5,
-    //     spaceBetween: 10,
-    //     centeredSlides: true,
-    //     grabCursor: true,
-    //     effect: "creative",
-    //     creativeEffect: {
-    //         prev: {
-    //             shadow: true,
-    //             translate: ["-30%", 0, -1],
-    //         },
-    //         next: {
-    //             translate: ["100%", 0, 0],
-    //         },
-    //     },
-    //     // If we need pagination
-    //     loop: global_swiper_photoswipe_loop_setting,
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true, /* false by deafult */
-    //         renderBullet: function(index, className) {
-    //             return '<span class="' + className + '">' + (index + 1) + "</span>";
-    //         }
-    //     },
-    //     // Navigation arrows
-    //     navigation: {
-    //         nextEl: '.swiper-button-next',
-    //         prevEl: '.swiper-button-prev',
-    //     },
-    //     /* remove/comment to stop autoplay   */
-    //     autoplay: {
-    //         delay: 3000,
-    //         disableOnInteraction: false
-    //     },
-    //     // keyboard control
-    //     keyboard: {
-    //         enabled: true,
-    //     }
-    // });
+<script>
+
     var swiper= new Swiper(".swiper", {
         spaceBetween: 20,
 
@@ -323,55 +220,6 @@
 
         }
     });
-    // import PhotoSwipeLightbox from 'photoswipe-lightbox.esm.js';
-    // import PhotoSwipe from 'https://unpkg.com/photoswipe@5.2.4/dist/photoswipe.esm.js';
-    //
-    // const photo_swipe_options = {
-    //     gallery: '#my-gallery',
-    //     pswpModule: PhotoSwipe,
-    //     // children: 'a',
-    //     loop: global_swiper_photoswipe_loop_setting,
-    //     showHideAnimationType: 'zoom', /* options: fade, zoom, none */
-    //     /* ## Hiding a specific UI element ## */
-    //     zoom: false,
-    //     close: true,
-    //     counter: !global_swiper_photoswipe_loop_setting,
-    //     arrowKeys: true,
-    //     /* ## Options ## */
-    //     bgOpacity: 0.3,/* deafult: 0.8 */
-    //     wheelToZoom: true, /* deafult: undefined */
-    // };
-    //
-    // const lightbox = new PhotoSwipeLightbox(photo_swipe_options);
-    //
-    // lightbox.init();
-    //
-    // lightbox.on('change', () => {
-    //     const { pswp } = lightbox;
-    //     swiper.slideTo(pswp.currIndex, 0, false);
-    //     //console.log('Slide index', pswp.currIndex);
-    //     //console.log('Slide object', pswp.currSlide);
-    //     //console.log('Slide object data', pswp.currSlide.data);
-    // });
-    //
-    // lightbox.on('afterInit', () => {
-    //     const { pswp } = lightbox;
-    //     if(swiper.params.autoplay.enabled){
-    //         swiper.autoplay.stop();
-    //     };
-    //     console.log('afterInit');
-    // });
-    //
-    //
-    // lightbox.on('closingAnimationStart', () => {
-    //     //console.log('closingAnimationStart');
-    //     const { pswp } = lightbox;
-    //     swiper.slideTo(pswp.currIndex, 0, false);
-    //     /* if autoplay enabled == true -> autoplay.start() when close lightbox */
-    //     if(swiper.params.autoplay.enabled){
-    //         swiper.autoplay.start();
-    //     }
-    // });
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -386,19 +234,6 @@
     });
 </script>
 
-{{--<script>--}}
-{{--    var modal = document.getElementById("modal");--}}
-{{--    var img = document.getElementById("myImg");--}}
-{{--    var modalImg = document.getElementById("img01");--}}
-{{--    var close = document.getElementById("close");--}}
-{{--    img.onclick = function(){--}}
-{{--        modal.style.display = "block";--}}
-{{--        modalImg.src = this.src;--}}
-{{--    }--}}
-{{--    close.onclick=function(){--}}
-{{--        modal.style.display="none";--}}
-{{--    }--}}
-{{--</script>--}}
 <script>
     function results(){
         let form = document.forms.my;
@@ -417,7 +252,6 @@
         if(result) {
             document.getElementById('result').innerHTML = "Сума: від " + result + " грн";
         }
-        // document.getElementById('result').innerHTML = width.value*height.value*type.value*type_c.value*type_door.value*thickness.value*furniture.value;
     }
     function type_construction(type_c, type_door, furniture){
             if(type_c=='tap' && type_door==3){

@@ -38,7 +38,7 @@
                             <div class="text">
                                 <div class="p">{{'Розмір: '.$work->size}}</div>
                                 <div class="p">{{$work->description}}</div>
-                                <a href="{{route('product', [$work->product->category->id, $work->product->id])}}" class="a">{{'Тип: '.$work->product->name}}</a>
+                                <a href="{{route('product',  $work->product->id)}}" class="a">{{'Тип: '.$work->product->name}}</a>
                             </div>
                             <div class="price_data">
                                 <h2>{{'Ціна: '.$work->price.' грн'}}</h2>
@@ -66,7 +66,7 @@
                     <div class="text">
                         <div class="p">{{'Розмір: '.$work->size}}</div>
                         <div class="p">{{$work->description}}</div>
-                        <a href="{{route('product', [$work->product->category->id, $work->product->id])}}" class="a">{{'Тип: '.$work->product->name}}</a>
+                        <a href="{{route('product',  $work->product->id)}}" class="a">{{'Тип: '.$work->product->name}}</a>
                     </div>
                     <div class="price_data">
                         <h2>{{'Ціна: '.$work->price.' грн'}}</h2>
@@ -90,7 +90,7 @@
                                     <div class="text">
                                         <div class="p">{{'Розмір: '.$work->size}}</div>
                                         <div class="p">{{$work->description}}</div>
-                                        <a href="{{route('product', [$work->product->category->id, $work->product->id])}}" class="a">{{'Тип: '.$work->product->name}}</a>
+                                        <a href="{{route('product', $work->product->id)}}" class="a">{{'Тип: '.$work->product->name}}</a>
                                     </div>
                                     <div class="price_data">
                                         <h2>{{'Ціна: '.$work->price.' грн'}}</h2>
@@ -132,7 +132,7 @@
                             <div class="text">
                                 <div class="p">{{'Розмір: '.$work->size}}</div>
                                 <div class="p">{{$work->description}}</div>
-                                <a href="{{route('product', [$work->product->category->id, $work->product->id])}}" class="a">{{'Тип: '.$work->product->name}}</a>
+                                <a href="{{route('product',  $work->product->id)}}" class="a">{{'Тип: '.$work->product->name}}</a>
                             </div>
                             <div class="price_data">
                                 <h2>{{'Ціна: '.$work->price.' грн'}}</h2>
@@ -164,7 +164,7 @@
         var classes = document.getElementsByClassName("general_photo");
         for(i=0; i<classes.length; i++) {
             lightGallery(classes[i]);
-            console.log(673);
+
         }
 
     </script>
@@ -174,8 +174,6 @@
             var inProcess = false;
             var num = 4;
             const more = document.getElementById('more');
-            // $(window).scroll(function() {
-            // if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProcess) {
             more.addEventListener('click', function (e) {
                 $.ajax({
                     url: './our_works/'+num,
@@ -204,7 +202,7 @@
                 });
 
             })
-            // });
+
         });
 
     </script>

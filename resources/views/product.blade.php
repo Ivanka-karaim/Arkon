@@ -17,9 +17,9 @@
         <div class="pop_up_container">
             <div class="pop_up_body" id="pop_up_body">
                 @if((Session::has('good')))
-                                <h3>Ваш номер збержено, очікуйте дзвінка</h3>
-                                <button class="pop_up_close">Ок</button>
-                                <div class="pop_up_close" id="pop_up_close">&#10006</div>
+                    <h3 style="display:block;">Ваш номер збержено, очікуйте дзвінка</h3>
+                <div>
+                    <button style="display:block;"  id="pop_up_ok" onclick="closePop('pop_up')">Ок</button></div>
                 @else
                 <h3>Для замовлення введіть ваш номер телефону</h3>
                 <p>Наш консультант зателефонує вам в найближчий термін для уточнення усіх даних</p>
@@ -29,10 +29,11 @@
                     <p>{!! Session::get('error') !!}</p>
                     <button id="open_response">Надіслати</button>
                 </form>
-                <div class="pop_up_close" id="pop_up_close">&#10006
+                @endif
+                <div class="pop_up_close" id="pop_up_close" onclick="closePop('pop_up')">&#10006
                 </div>
 
-                    @endif
+
 
             </div>
         </div>
@@ -40,7 +41,7 @@
 <div class="pop_up" id="modal">
     <div class="pop_up_container">
         <div class="photo_body">
-            <span class="close" id="close">&#10006</span>
+            <span class="close" id="close" onclick="closePop('modal')">&#10006</span>
             <img class="modal-content" id="img01">
         </div>
     </div>
@@ -75,6 +76,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="description">
+
                             <h2>Характеристики:</h2>
                             <hr>
                             <div class="text">
@@ -84,6 +86,10 @@
                                 <p>{{'Колір фурнітури: '.($product->color_furniture? $product->color_furniture:' - ')}}</p>
                                 <p>{{'Ширина: від '.($product->width? $product->width.'мм':' - ')}}</p>
                                 <p>{{'Висота: від '.($product->height? $product->height.'мм':' - ')}}</p>
+                            </div>
+                            <div style="display: flex; margin: 20px 0;">
+                                <h2 style="  white-space: pre;" >Ціна: </h2>
+                                <h2 style=" color:#1E7DB2;">{{' від '.$product->price." грн"}}</h2>
                             </div>
                             <div class="order">
                                 <div class="guarantee">
@@ -124,6 +130,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="description">
+
                             <h2>Характеристики:</h2>
                             <hr>
                             <div class="text">
@@ -133,6 +140,10 @@
                                 <p>{{'Колір фурнітури: '.($product->color_furniture? $product->color_furniture:' - ')}}</p>
                                 <p>{{'Ширина: від '.($product->width? $product->width.'мм':' - ')}}</p>
                                 <p>{{'Висота: від '.($product->height? $product->height.'мм':' - ')}}</p>
+                            </div>
+                            <div style="display: flex; margin: 20px 0;">
+                                <h2 style="  white-space: pre;" >Ціна: </h2>
+                                <h2 style=" color:#1E7DB2;">{{' від '.$product->price." грн"}}</h2>
                             </div>
                             <div class="order">
                                 <div class="buy">
@@ -169,6 +180,9 @@
 
 
                 <div class="description">
+                    <div style="display: flex; align-items:center; flex-direction: column; margin-bottom:20px;">
+                        <h2 >{{"Ціна:  "}}</h2><hr><h2 style="display:inline; color:#1E7DB2;">{{" від ".$product->price." грн"}}</h2>
+                    </div>
                     <h2>Характеристики:</h2>
                     <hr>
                     <div class="text">
@@ -323,21 +337,10 @@
 
 @endsection
 @section('scripts')
-{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>--}}
-{{--    <script>--}}
-{{--        document.getElementById("photo").requestFullScreen();--}}
-{{--        // lightGallery(document.getElementById('photo'));--}}
-
-
-{{--    </script>--}}
 
     <script>
-
         const openPopUp = document.querySelectorAll('.open_pop_up');
-        const closePopUp = document.getElementById('pop_up_close');
         const popUp = document.getElementById('pop_up');
-        const openResponse = document.getElementById('open_response');
-        const response = document.getElementById('response');
         for(var i=0; i<openPopUp.length; i++) {
             openPopUp[i].addEventListener('click', function (e) {
                 e.preventDefault();
@@ -346,10 +349,10 @@
             });
         }
 
-        closePopUp.addEventListener('click', () => {
+        function closePop(name){
+            const popUp = document.getElementById(name);
             popUp.classList.remove('active');
-
-        })
+        }
     </script>
     <script>
         var modal = document.getElementById("modal");
