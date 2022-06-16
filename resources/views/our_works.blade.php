@@ -158,54 +158,5 @@
 
 
 @endsection
-@section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
-    <script>
-        var classes = document.getElementsByClassName("general_photo");
-        for(i=0; i<classes.length; i++) {
-            lightGallery(classes[i]);
 
-        }
-
-    </script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            var inProcess = false;
-            var num = 4;
-            const more = document.getElementById('more');
-            more.addEventListener('click', function (e) {
-                $.ajax({
-                    url: './our_works/'+num,
-                    method: 'GET',
-                    beforeSend: function () {
-
-                    },
-                    success: function (response) {
-                        if(!response && !inProcess){
-                            $('#logar').append("<p style='text-align:center'>Немає більше товарів</p>");
-
-                            inProcess = true;
-                        }
-                        else {
-                            $('#logar').append(response);
-
-                        }
-                    }
-                }).done(function (data) {
-                    num += 4;
-                    classe=document.getElementsByClassName("general_photo");
-                    for(i=0; i<classe.length; i++) {
-                        lightGallery(classe[i]);
-                        console.log(673);
-                    }
-                });
-
-            })
-
-        });
-
-    </script>
-
-@endsection
 

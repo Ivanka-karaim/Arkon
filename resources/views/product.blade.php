@@ -1,40 +1,38 @@
 @extends('app')
 @section('title', "ArKon | $product->name")
 @section('content')
-{{--    @if (Session::has('success'))--}}
-{{--        <div class="pop_up active" >--}}
-{{--            <div class="pop_up_container">--}}
-{{--                <div class="pop_up_body" id="pop_up_body">--}}
-{{--                    <h3>Ваш номер збержено, очікуйте дзвінка</h3>--}}
-{{--                    <button class="pop_up_close">Ок</button>--}}
-{{--                    <div class="pop_up_close" id="pop_up_close">&#10006--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    @endif--}}
-    <div class="pop_up {!! Session::get('response') !!}" id="pop_up">
+    @if(Session::has('good'))
+        <div class="pop_up active" id="pop_up">
+            <div class="pop_up_container">
+                <div class="pop_up_body" id="pop_up_body">
+                    <div style="display:flex; flex-direction: column; align-items:center;">
+                        <h3 >{!! Session::get('good') !!}</h3>
+                        <button id="pop_up_ok" onclick="closePop('pop_up')">Ок</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @endif
+    @if($errors->any())
+        <div class="pop_up active" id="pop_up">
+    @else
+         <div class="pop_up" id="pop_up">
+    @endif
         <div class="pop_up_container">
             <div class="pop_up_body" id="pop_up_body">
-                @if((Session::has('good')))
-                    <h3 style="display:block;">Ваш номер збержено, очікуйте дзвінка</h3>
-                <div>
-                    <button style="display:block;"  id="pop_up_ok" onclick="closePop('pop_up')">Ок</button></div>
-                @else
                 <h3>Для замовлення введіть ваш номер телефону</h3>
                 <p>Наш консультант зателефонує вам в найближчий термін для уточнення усіх даних</p>
                 <form action="" method="post">
                     @csrf
-                    <input type="text" placeholder="+38 (000) 000 00 00" id="phone_number" name="phone_number" required="">
-                    <p>{!! Session::get('error') !!}</p>
+                    <input  type="text" placeholder="+38 (000) 000 00 00" id="phone_number" name="phone_number" required="">
+                    @if ($errors->any())
+                            <p>{{ $errors->all()[0]}}</p>
+                    @endif
                     <button id="open_response">Надіслати</button>
                 </form>
-                @endif
                 <div class="pop_up_close" id="pop_up_close" onclick="closePop('pop_up')">&#10006
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -70,9 +68,7 @@
             <div class="product_photo_and_description">
                 <div class="row">
                     <div class="col-lg-6">
-{{--                        <a href="{{url($product->photo)}}" id="photo">--}}
                             <img class="click" src="{{url($product->photo)}}" alt="" id="myImg">
-{{--                        </a>--}}
                     </div>
                     <div class="col-lg-6">
                         <div class="description">
@@ -336,35 +332,4 @@
 
 
 @endsection
-@section('scripts')
 
-    <script>
-        const openPopUp = document.querySelectorAll('.open_pop_up');
-        const popUp = document.getElementById('pop_up');
-        for(var i=0; i<openPopUp.length; i++) {
-            openPopUp[i].addEventListener('click', function (e) {
-                e.preventDefault();
-                popUp.classList.add('active');
-
-            });
-        }
-
-        function closePop(name){
-            const popUp = document.getElementById(name);
-            popUp.classList.remove('active');
-        }
-    </script>
-    <script>
-        var modal = document.getElementById("modal");
-        var img = document.getElementById("myImg");
-        var modalImg = document.getElementById("img01");
-        var close = document.getElementById("close");
-        img.onclick = function(){
-            modal.style.display = "block";
-            modalImg.src = this.src;
-        }
-        close.onclick=function(){
-            modal.style.display="none";
-        }
-    </script>
-@endsection

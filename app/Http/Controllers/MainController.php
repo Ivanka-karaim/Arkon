@@ -62,19 +62,14 @@ class MainController extends Controller
 
 
     public function form( $id_product, Request $request){
-        $pattern = "/^\+380\d{3}\d{2}\d{2}\d{2}$/";
-        $phone_number=trim($request->phone_number);
-
-        if(preg_match($pattern, $phone_number)) {
-            $phone=new DatePeople();
-            $phone->phone_number=$request->phone_number;
-            $phone->date=date("Y-m-d H:i:s");
-            $phone->product_id=$id_product;
-            $phone->save();
-        }
-        else {
-            return redirect()->back()->with(['error' => "Ви ввели неправильний номер телефону!!!", 'response' => 'active']);
-        }
-        return redirect()->back()->with(['good'=>'Lzre','response' => 'active']);
+        $request->validate([
+            'phone_number'=>'required|regex:/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/',
+        ]);
+        $phone=new DatePeople;
+        $phone->phone_number=$request->phone_number;
+        $phone->date=date("Y-m-d H:i:s");
+        $phone->product_id=$id_product;
+        $phone->save();
+        return redirect()->back()->with(['good'=>'Ваш номер збержено, очікуйте дзвінка']);
     }
 }

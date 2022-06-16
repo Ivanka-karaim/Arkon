@@ -185,93 +185,19 @@
     </div>
 
 </footer>
-@yield('scripts')
 <script src="https://kit.fontawesome.com/1467b92032.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
-<script>
-    lightGallery(document.getElementById("my-gallery"));
-</script>
-
-<script>
-
-    var swiper= new Swiper(".swiper", {
-        spaceBetween: 20,
-
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        slidesPerView: 2,
-        loop:true,
-        breakpoints: {
-            768:{
-                slidesPerView: 4.05,
-                spaceBetween: 20,
-            },
-            576:{
-                slidesPerView: 3.05,
-                spaceBetween: 15,
-            },
-            992:{
-                slidesPerView: 5.05,
-                spaceBetween: 30,
-            }
-
-        }
-    });
-</script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('.menu-burger__header').click(function(){
-            $('.menu-burger__header').toggleClass('open-menu');
-            $('.menu').toggleClass('open-menu');
-            $('body').toggleClass('fixed-page');
-        });
-    });
-</script>
-
-<script>
-    function results(){
-        let form = document.forms.my;
-        let width = form.elements.width;
-        let height = form.elements.height;
-        let depth = form.elements.depth;
-        let type=form.elements.type;
-        let type_c=form.elements.type_construction;
-        let type_door=form.elements.type_door;
-        let thickness =form.elements.thickness;
-        let furniture = form.elements.furniture;
-        var result;
-
-        result=type_construction(type_c.value, type_door.value, furniture.value)+((width.value/1000+depth.value/1000)*height.value/1000*type.value*thickness.value);
-        result*=1.5;
-        if(result) {
-            document.getElementById('result').innerHTML = "Сума: від " + result + " грн";
-        }
-    }
-    function type_construction(type_c, type_door, furniture){
-            if(type_c=='tap' && type_door==3){
-                document.getElementById('depth_1').innerHTML = "0 мм";
-                document.getElementById('depth').value=0;
-                console.log(1225*furniture);
-                return 1225*furniture;
-            }
-            else if(type_c==='tap'){
-                console.log(3550*furniture);
-                return 3550*furniture;
-            }
-            else{
-                console.log(3905*furniture);
-
-                return 3905*furniture;
-            }
-    }
-</script>
-
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>--}}
+{{--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--}}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="{{url('/js/Swiper.js')}}"></script>
+<script src="{{url('/js/menu.js')}}"></script>
+<script src="{{url('/js/newWorks.js')}}"></script>
+<script src="{{url('/js/forms.js')}}"></script>
+<script src="{{url('/js/openPhoto.js')}}"></script>
+<script src="{{url('/js/openPopUp.js')}}"></script>
 </body>
 </html>
 
