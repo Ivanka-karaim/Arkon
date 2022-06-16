@@ -17,7 +17,7 @@ $(document).ready(function(){
             },
             success: function (response) {
                 if(!response && !inProcess){
-                    $('#logar').append("<p style='text-align:center'>Немає більше товарів</p>");
+                    $('#logar').append("<p style='text-align:center; font-size: 20px; color: #1E7DB2; '><b>Немає більше товарів</p>");
 
                     inProcess = true;
                 }
@@ -31,7 +31,6 @@ $(document).ready(function(){
             classe=document.getElementsByClassName("general_photo");
             for(i=0; i<classe.length; i++) {
                 lightGallery(classe[i]);
-                console.log(673);
             }
         });
 

@@ -1,25 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') </title>
-    <link type="Image/x-icon" href="{{url('img/logo_title.png')}}" rel="icon">
-    <link rel="stylesheet" href="{{url('css/index.css')}}">
-    <link rel="stylesheet" href="{{url('css/catalog.css')}}">
-    <link rel="stylesheet" href="{{url('css/products.css')}}">
-    <link rel="stylesheet" href="{{url('css/services.css')}}">
-    <link rel="stylesheet" href="{{url('css/product.css')}}">
-    <link rel="stylesheet" href="{{url('css/our_works.css')}}">
-    <link rel="stylesheet" href="{{url('bootstrap/bootstrap-grid.css')}}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link type="Image/x-icon" href="/img/logo_title.png" rel="icon">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/catalog.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="stylesheet" href="/css/services.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/our_works.css">
+    <link rel="stylesheet" href="/bootstrap/bootstrap-grid.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css" />
-{{--    <link rel="stylesheet" href="/examples/libs/chief-slider/chief-slider.min.css">--}}
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Mulish&family=Oswald:wght@300;400;500&family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -70,32 +66,6 @@
             </div>
                 </div>
         </div>
-{{--        <div class="header_in_mobile">--}}
-{{--            <div class="logo">--}}
-{{--                <a href="{{route('general')}}"><img src="{{url('img/Logo.png')}}" alt="" ></a>--}}
-{{--            </div>--}}
-{{--            <div class="header_icons">--}}
-{{--                <a class="icon" href="#"><i class="fa-solid fa-phone"></i></a>--}}
-{{--                <div class="header_icon" ><span></span></div>--}}
-{{--                <nav class="header__menu">--}}
-{{--                    <ul class="header__list">--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('general')}}" class="header__link">Головна</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('catalog')}}" class="header__link">Каталог</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('services')}}" class="header__link">Послуги</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('our_works')}}" class="header__link">Наші роботи</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </nav>--}}
-{{--            </div>--}}
-
-{{--        </div>--}}
     </div>
 
 </header>
@@ -189,15 +159,13 @@
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
-{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>--}}
-{{--<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>--}}
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script src="{{url('/js/Swiper.js')}}"></script>
-<script src="{{url('/js/menu.js')}}"></script>
-<script src="{{url('/js/newWorks.js')}}"></script>
-<script src="{{url('/js/forms.js')}}"></script>
-<script src="{{url('/js/openPhoto.js')}}"></script>
-<script src="{{url('/js/openPopUp.js')}}"></script>
+<script src="/js/Swiper.js"></script>
+<script src="/js/menu.js"></script>
+<script src="/js/newWorks.js"></script>
+<script src="/js/forms.js"></script>
+<script src="/js/openPhoto.js"></script>
+<script src="/js/openPopUp.js"></script>
 </body>
 </html>
 

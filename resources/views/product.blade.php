@@ -44,6 +44,7 @@
         </div>
     </div>
 </div>
+
     <section class="way">
         <div class="container">
             <div class="way_block">
@@ -324,6 +325,7 @@
         </div>
 
     </section>
+
 
 
 
